@@ -28,7 +28,7 @@ class TicTacToe
         input.to_i - 1
     end
 
-    def move(index, sign)
+    def move(index, sign = "X")
         board[index] = sign
     end
 
@@ -37,7 +37,7 @@ class TicTacToe
     end
 
     def valid_move?(index)
-        board[index] == " " && (index).between?(0,8)
+        !position_taken?(index) && (index).between?(0,8)
     end
 
     def turn_count
@@ -49,6 +49,7 @@ class TicTacToe
     end
     
     def turn
+        puts "Specify position between 1-9"
         index = input_to_index(gets.chomp)
         if valid_move?(index)
           move(index, current_player)
@@ -61,7 +62,7 @@ class TicTacToe
     def won?
         WIN_COMBINATIONS.any? do |combo|
             if board[combo[0]] == board[combo[1]] && board[combo[0]] == board[combo[2]] && position_taken?(combo[0])
-                return WIN_COMBINATIONS.find{|combo|board[combo[0]] == board[combo[1]] && board[combo[0]] == board[combo[2]]}
+                return combo
             end
         end
     end
@@ -75,7 +76,7 @@ class TicTacToe
     end
 
     def over?
-        draw? || won? || full?
+        draw? || won?
     end
 
     def winner
