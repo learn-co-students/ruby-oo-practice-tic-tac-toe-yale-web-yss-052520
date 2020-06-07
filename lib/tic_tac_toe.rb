@@ -80,12 +80,7 @@ class TicTacToe
     end
 
     def winner
-        # won? && board[won?[0]] != " " ? board[won?[0]] : nil
         board[won?[0]] if won?
-        # if won? && board[won?[0]] != " " 
-        #     board[won?[0]] 
-        # else nil
-        # end
     end
     
     def play
