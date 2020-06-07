@@ -69,7 +69,6 @@ class TicTacToe
        
     def full?
         turn_count == 9
-        # board.all? {|position| position == "X" || position == "O"}
     end
 
     def draw?
@@ -81,8 +80,8 @@ class TicTacToe
     end
 
     def winner
-        won? && board[won?[0]] != " " ? board[won?[0]] : nil
-        
+        # won? && board[won?[0]] != " " ? board[won?[0]] : nil
+        board[won?[0]] if won?
         # if won? && board[won?[0]] != " " 
         #     board[won?[0]] 
         # else nil
