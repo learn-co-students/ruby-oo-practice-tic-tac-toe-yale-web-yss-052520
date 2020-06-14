@@ -1,5 +1,5 @@
 require_relative '../lib/tic_tac_toe.rb'
-
+require 'pry'
 describe './lib/tic_tac_toe.rb' do
   describe TicTacToe do
     describe '#initialize' do
@@ -32,6 +32,7 @@ describe './lib/tic_tac_toe.rb' do
 
         output = capture_puts{ game.display_board }
 
+        # binding.pry
         expect(output).to include(" X | X | X ")
         expect(output).to include("-----------")
         expect(output).to include(" X | O | O ")
